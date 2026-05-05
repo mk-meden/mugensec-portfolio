@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MugenSec — Fast, secure websites for growing businesses</title>
+<meta name="description" content="MugenSec builds fast, secure websites for growing businesses in 7 days. Fixed price. OWASP Top 10 testing on every site. Based in India, working globally." />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="MugenSec — Fast, secure websites for growing businesses" />
+<meta property="og:description" content="Shipped in 7 days. Fixed price. OWASP Top 10 testing included on every site." />
+<meta property="og:url" content="https://mugensec.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MugenSec — Fast, secure websites for growing businesses" />
+<meta name="twitter:description" content="Shipped in 7 days. Fixed price. OWASP Top 10 testing included." />
+
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="canonical" href="https://mugensec.com/" />
+
+<!-- Fonts: Tektur (cyber display) + Inter (body) + JetBrains Mono (labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          neon: {
+            DEFAULT: "#B6FF1A",
+            500: "#B6FF1A",
+            600: "#9EE60E",
+            700: "#7FB821",
+            900: "#3A5807"
+          },
+          ink: {
+            900: "#000000",
+            800: "#0A0A0A",
+            700: "#111111",
+            600: "#1A1A1A",
+            500: "#262626",
+            400: "#404040"
+          }
+        },
+        fontFamily: {
+          display: ['Tektur', 'ui-monospace', 'monospace'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  };
+</script>
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "MugenSec",
+  "description": "Fast, secure websites for growing businesses. Shipped in 7 days.",
+  "url": "https://mugensec.com/",
+  "email": "mkrishnan@mugensec.com",
+  "telephone": "+91-9744552312",
+  "areaServed": "Worldwide",
+  "priceRange": "$$",
+  "serviceType": ["Web design", "Web development", "Web security testing"]
+}
+</script>
+
+<style>
+  :root { --neon: #B6FF1A; }
+  html { scroll-behavior: smooth; background: #000; }
+  body { background: #000; }
+
+  /* Neon glow on display headings */
+  .neon-glow {
+    color: var(--neon);
+    text-shadow:
+      0 0 2px rgba(182, 255, 26, 0.55),
+      0 0 8px rgba(182, 255, 26, 0.22),
+      0 0 22px rgba(182, 255, 26, 0.12);
+  }
+  .neon-soft {
+    color: var(--neon);
+    text-shadow: 0 0 6px rgba(182, 255, 26, 0.25);
+  }
+
+  /* Subtle scanline backdrop for hero */
+  .scanlines {
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(182,255,26,0.02) 0px,
+        rgba(182,255,26,0.02) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+  }
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(182,255,26,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(182,255,26,0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  /* Speed lines decoration */
+  .speed-lines {
+    display: inline-flex; flex-direction: column; gap: 6px;
+  }
+  .speed-lines i {
+    display: block; height: 3px; border-radius: 2px;
+    background: var(--neon);
+    box-shadow: 0 0 8px rgba(182,255,26,0.7);
+  }
+  .speed-lines i:nth-child(1){ width: 28px; }
+  .speed-lines i:nth-child(2){ width: 44px; }
+  .speed-lines i:nth-child(3){ width: 20px; }
+  .speed-lines.right i { margin-left: auto; }
+
+  /* Section dots */
+  .section-dots { display: inline-flex; gap: 6px; }
+  .section-dots span { width: 6px; height: 6px; border-radius: 9999px; background: var(--neon); box-shadow: 0 0 8px rgba(182,255,26,0.6); }
+
+  /* Card: dark with thin neon-tinted border */
+  .panel {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 100%), #0A0A0A;
+    border: 1px solid #1F1F1F;
+    border-radius: 18px;
+  }
+  .panel-hover { transition: border-color .2s, box-shadow .2s, transform .2s; }
+  .panel-hover:hover { border-color: rgba(182,255,26,0.45); box-shadow: 0 0 0 1px rgba(182,255,26,0.15), 0 8px 32px rgba(182,255,26,0.07); transform: translateY(-2px); }
+
+  .label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; color: var(--neon); }
+  .display { font-family: 'Tektur', ui-monospace, monospace; font-weight: 900; letter-spacing: .01em; line-height: 0.95; }
+  .display-md { font-family: 'Tektur', ui-monospace, monospace; font-weight: 700; line-height: 1.05; }
+
+  /* Wave decoration (footer / hero bottom) */
+  .wave-bottom {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 80px;
+    background:
+      radial-gradient(ellipse 220px 60px at 10% 100%, rgba(182,255,26,0.35), transparent 70%),
+      radial-gradient(ellipse 280px 60px at 80% 100%, rgba(182,255,26,0.25), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Form field tweaks for dark background */
+  input, textarea, select { caret-color: var(--neon); }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .neon-glow, .neon-soft { text-shadow: none; }
+    html { scroll-behavior: auto; }
+  }
+
+
+  /* ---------- Cyber animations ---------- */
+
+  /* Hero heading scan-in (clip from top) */
+  @keyframes scan-in {
+    0%   { clip-path: inset(0 0 100% 0); opacity: 0; }
+    20%  { opacity: 1; }
+    100% { clip-path: inset(0 0 0% 0); opacity: 1; }
+  }
+  .scan-in { animation: scan-in 1.0s cubic-bezier(.2,.8,.2,1) .15s both; }
+
+  /* Pulsing "live" dot */
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(182,255,26,.55); transform: scale(1); }
+    70%  { box-shadow: 0 0 0 10px rgba(182,255,26,0);  transform: scale(1.05); }
+    100% { box-shadow: 0 0 0 0 rgba(182,255,26,0);     transform: scale(1); }
+  }
+  .pulse-dot { animation: pulse-dot 2s ease-out infinite; }
+
+  /* Slow drifting grid background */
+  @keyframes grid-drift {
+    from { background-position: 0 0; }
+    to   { background-position: 36px 36px; }
+  }
+  .grid-pattern { animation: grid-drift 14s linear infinite; }
+
+  /* Continuous scanline sweep across the hero */
+  @keyframes scan-sweep {
+    0%   { transform: translateY(-20%); opacity: 0; }
+    8%   { opacity: .8; }
+    80%  { opacity: .5; }
+    100% { transform: translateY(120%); opacity: 0; }
+  }
+  .scan-sweep {
+    position: absolute; left: 0; right: 0; top: 0; height: 110px;
+    pointer-events: none; mix-blend-mode: screen;
+    background: linear-gradient(180deg, transparent 0%, rgba(182,255,26,.04) 30%, rgba(182,255,26,.20) 50%, rgba(182,255,26,.04) 70%, transparent 100%);
+    filter: blur(2px);
+    animation: scan-sweep 8s linear infinite;
+  }
+
+  /* Terminal caret blink */
+  @keyframes caret-blink { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+  .caret {
+    display: inline-block; width: 8px; height: 1em;
+    background: var(--neon); margin-left: 6px; vertical-align: -2px;
+    animation: caret-blink 1s steps(2) infinite;
+    box-shadow: 0 0 6px rgba(182,255,26,.55);
+  }
+
+  /* Logo flicker (one-shot via class) */
+  @keyframes logo-flicker {
+    0%,100%        { opacity: 1; }
+    8%,18%,30%,48% { opacity: .35; }
+    14%,24%,40%    { opacity: 1; }
+    60%            { opacity: .55; }
+    72%            { opacity: 1; }
+  }
+  .logo-flicker { animation: logo-flicker .9s steps(10, end) 1; }
+
+  /* Reveal-on-scroll */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* CTA shimmer on hover */
+  .btn-shimmer { position: relative; overflow: hidden; isolation: isolate; }
+  .btn-shimmer::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+    transform: translateX(-110%);
+    transition: transform .9s ease;
+  }
+  .btn-shimmer:hover::after { transform: translateX(110%); }
+
+  /* Counter element keeps consistent width as digits change */
+  .counter { font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scan-in, .pulse-dot, .grid-pattern, .scan-sweep, .caret,
+    .logo-flicker, .reveal, .btn-shimmer::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+</style>
+</head>
+<body class="font-sans bg-black text-neutral-300 antialiased">
+
+<!-- Skip link -->
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-neon focus:text-black focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
+
+<!-- Top utility bar — like the deck's "Liceria & Co. ... date" -->
+<div class="hidden md:flex max-w-7xl mx-auto px-6 pt-5 items-center justify-between text-[11px] tracking-widest uppercase text-neutral-500 font-mono">
+  <span>// MugenSec — secure web, shipped fast<span class="caret"></span></span>
+  <span id="topdate">2026.05.05</span>
+</div>
+
+<!-- Nav -->
+<header class="sticky top-0 z-40 backdrop-blur bg-black/85 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 font-bold text-white text-lg">
+      <span id="brand-mark" class="inline-block w-10 h-5 text-neon" style="filter: drop-shadow(0 0 6px rgba(182,255,26,.45));"><svg viewBox="0 0 64 32" class="w-full h-full" aria-hidden="true">
+        <circle cx="22" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
+        <circle cx="42" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
+      </svg></span>
+      <span class="font-display tracking-wider">MugenSec</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-neutral-300 font-mono">
+      <a href="#why" class="hover:text-neon transition">Why</a>
+      <a href="#packages" class="hover:text-neon transition">Packages</a>
+      <a href="#process" class="hover:text-neon transition">Process</a>
+      <a href="#security" class="hover:text-neon transition">Security</a>
+      <a href="#faq" class="hover:text-neon transition">FAQ</a>
+    </nav>
+    <a href="#contact" class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-neon text-black px-4 py-2 rounded-md text-sm font-semibold hover:bg-neon-600 transition" style="box-shadow: 0 0 24px rgba(182,255,26,.35);">Get a quote →</a>
+    <button id="mnav" class="md:hidden p-2 -mr-2 text-neutral-200" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div id="mmenu" class="hidden md:hidden border-t border-white/10 bg-black/95">
+    <div class="px-6 py-4 flex flex-col gap-3 text-sm font-mono">
+      <a href="#why">Why</a>
+      <a href="#packages">Packages</a>
+      <a href="#process">Process</a>
+      <a href="#security">Security</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="bg-neon text-black px-4 py-2 rounded-md text-center font-semibold">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section id="top" class="relative overflow-hidden">
+  <div class="absolute inset-0 grid-pattern opacity-80"></div>
+  <div class="absolute inset-0 scanlines"></div>
+  <div class="scan-sweep"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+
+  <!-- Speed line decorations on the sides -->
+  <div class="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 speed-lines"><i></i><i></i><i></i></div>
+  <div class="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 speed-lines right"><i></i><i></i><i></i></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 pt-20 pb-28 md:pt-32 md:pb-40 text-center md:text-left">
+    <p class="label inline-flex items-center gap-2 mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-neon pulse-dot"></span>
+      Now booking 3 launch-rate clients
+    </p>
+    <h1 class="display neon-glow text-5xl md:text-7xl lg:text-8xl uppercase scan-in">
+      Fast, secure<br/>websites <span class="text-white" style="text-shadow:none">for</span><br/>growing business.
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg md:text-xl text-neutral-300 mx-auto md:mx-0">
+      <span class="neon-soft font-semibold">Shipped in 7 days.</span> Fixed price. No surprises. Every MugenSec site goes live secure by default — HTTPS, hardened headers, an OWASP Top 10 baseline scan, and a written security report at handover.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3 justify-center md:justify-start">
+      <a href="#contact" class="btn-shimmer inline-flex items-center gap-2 bg-neon hover:bg-neon-600 text-black px-6 py-3 rounded-md font-semibold uppercase tracking-wider transition" style="box-shadow: 0 0 28px rgba(182,255,26,.45);">
+        Get a quote →
+      </a>
+      <a href="#packages" class="inline-flex items-center gap-2 border border-neon/40 text-neon hover:bg-neon/10 px-6 py-3 rounded-md font-semibold uppercase tracking-wider transition">
+        See packages
+      </a>
+    </div>
+
+    <div class="mt-12 section-dots"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section class="relative border-y border-white/10 bg-ink-800">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div>
+      <div class="display neon-soft text-3xl md:text-4xl"><span class="counter" data-counter="7">0</span> DAYS</div>
+      <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">Average delivery</div>
+    </div>
+    <div>
+      <div class="display neon-soft text-3xl md:text-4xl"><span class="counter" data-counter="90">0</span>+</div>
+      <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">Lighthouse score, every site</div>
+    </div>
+    <div>
+      <div class="display neon-soft text-3xl md:text-4xl">OWASP</div>
+      <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">Top 10 tested before launch</div>
+    </div>
+    <div>
+      <div class="display neon-soft text-3xl md:text-4xl">FIXED</div>
+      <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">Price. No hourly billing.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section id="why" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between gap-6 flex-wrap mb-14">
+      <div class="max-w-2xl">
+        <p class="label mb-4">// 01 — Why MugenSec</p>
+        <h2 class="display neon-glow text-4xl md:text-6xl uppercase">Built for the<br/>way growing<br/>business <span class="text-white" style="text-shadow:none">moves.</span></h2>
+        <p class="mt-6 text-lg text-neutral-400 max-w-xl">Growing businesses get the worst end of the website market: slow templates, leaky plugins, and quotes that mysteriously triple. We do the opposite.</p>
+      </div>
+      <div class="speed-lines hidden lg:flex"><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="reveal panel panel-hover p-7">
+        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(182,255,26,.25) inset;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <h3 class="display-md text-2xl text-white">Fast to ship.<br/>Fast to load.</h3>
+        <p class="mt-3 text-neutral-400">Sites go live in 3–10 days. Static-first builds keep Lighthouse above 90 — even on slow phones.</p>
+      </div>
+      <div class="reveal panel panel-hover p-7">
+        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(182,255,26,.25) inset;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg>
+        </div>
+        <h3 class="display-md text-2xl text-white">Secure by<br/>default.</h3>
+        <p class="mt-3 text-neutral-400">Every site ships with HTTPS, hardened security headers, dependency auditing, and an OWASP Top 10 baseline scan with findings remediated.</p>
+      </div>
+      <div class="reveal panel panel-hover p-7">
+        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(182,255,26,.25) inset;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M5 6h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg>
+        </div>
+        <h3 class="display-md text-2xl text-white">Fair, fixed<br/>pricing.</h3>
+        <p class="mt-3 text-neutral-400">Pick a package. Pay 50% upfront. We agree on scope and ship it. No vague hourly billing, no scope creep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages -->
+<section id="packages" class="relative py-24 md:py-32 border-y border-white/10 bg-ink-800">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl">
+      <p class="label mb-4">// 02 — Packages</p>
+      <h2 class="display neon-glow text-4xl md:text-6xl uppercase">Three plans.<br/>Pick one.</h2>
+      <p class="mt-6 text-lg text-neutral-400">Intro pricing for our first launch-rate clients in exchange for a testimonial. Prices in INR; we work in USD too.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-5">
+
+      <!-- Starter -->
+      <div class="reveal panel panel-hover p-7 flex flex-col">
+        <div class="label">Starter</div>
+        <div class="mt-4 flex items-baseline gap-2">
+          <div class="display text-5xl text-white">₹8k</div>
+          <div class="text-neutral-500 text-sm font-mono">– ₹12k</div>
+        </div>
+        <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">3–5 day delivery</div>
+        <ul class="mt-7 space-y-2.5 text-sm text-neutral-300 flex-1">
+          <li class="flex gap-2"><span class="text-neon">▸</span> Up to 5 pages</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Mobile-responsive</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Contact form</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Basic SEO + sitemap</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> SSL + security headers</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Lighthouse 90+</li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex justify-center items-center border border-white/20 hover:border-neon text-white hover:text-neon px-4 py-2.5 rounded-md font-semibold uppercase tracking-wider text-sm transition">Pick Starter</a>
+      </div>
+
+      <!-- Growth (highlighted) -->
+      <div class="relative panel panel-hover p-7 flex flex-col" style="border-color: rgba(182,255,26,.55); box-shadow: 0 0 0 1px rgba(182,255,26,.25), 0 0 60px rgba(182,255,26,.10);">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-neon text-black text-[11px] uppercase tracking-widest font-bold px-3 py-1 rounded-full font-mono" style="box-shadow: 0 0 18px rgba(182,255,26,.55);">Most popular</div>
+        <div class="label">Growth</div>
+        <div class="mt-4 flex items-baseline gap-2">
+          <div class="display text-5xl neon-soft">₹18k</div>
+          <div class="text-neutral-500 text-sm font-mono">– ₹28k</div>
+        </div>
+        <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">5–7 day delivery</div>
+        <ul class="mt-7 space-y-2.5 text-sm text-neutral-300 flex-1">
+          <li class="flex gap-2"><span class="text-neon">▸</span> Everything in Starter</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Up to 10 pages + blog/CMS</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Google Business Profile setup</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Schema.org structured data</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> OWASP Top 10 quick scan</li>
+        </ul>
+        <a href="#contact" class="btn-shimmer mt-8 inline-flex justify-center items-center bg-neon hover:bg-neon-600 text-black px-4 py-2.5 rounded-md font-semibold uppercase tracking-wider text-sm transition" style="box-shadow: 0 0 24px rgba(182,255,26,.40);">Pick Growth</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="reveal panel panel-hover p-7 flex flex-col">
+        <div class="label">Pro</div>
+        <div class="mt-4 flex items-baseline gap-2">
+          <div class="display text-5xl text-white">₹38k</div>
+          <div class="text-neutral-500 text-sm font-mono">– ₹55k</div>
+        </div>
+        <div class="text-xs uppercase tracking-widest text-neutral-500 mt-2 font-mono">7–10 day delivery</div>
+        <ul class="mt-7 space-y-2.5 text-sm text-neutral-300 flex-1">
+          <li class="flex gap-2"><span class="text-neon">▸</span> Everything in Growth</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Up to 20 pages</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Booking / WhatsApp integration</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Analytics + monthly report</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Full OWASP Top 10 audit</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> MITRE ATT&amp;CK threat mapping</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> 30 days post-launch support</li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex justify-center items-center border border-white/20 hover:border-neon text-white hover:text-neon px-4 py-2.5 rounded-md font-semibold uppercase tracking-wider text-sm transition">Pick Pro</a>
+      </div>
+
+    </div>
+
+    <p class="mt-12 text-sm text-neutral-500 text-center font-mono">// Care plans available from ₹999/month — hosting, updates, backups, security re-scans.</p>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl mb-14">
+      <p class="label mb-4">// 03 — Process</p>
+      <h2 class="display neon-glow text-4xl md:text-6xl uppercase">Brief to live<br/>in 7 days.</h2>
+      <p class="mt-6 text-lg text-neutral-400">Predictable steps. Predictable price. Predictable date.</p>
+    </div>
+    <ol class="grid md:grid-cols-4 gap-5">
+      <li class="reveal panel p-6">
+        <div class="text-xs uppercase tracking-widest text-neutral-500 font-mono">Step 01</div>
+        <div class="mt-3 display-md text-2xl text-neon">Brief</div>
+        <p class="mt-3 text-sm text-neutral-400">15-minute call. We scope your goals, content, and brand. You pay 50%. We start the same day.</p>
+      </li>
+      <li class="reveal panel p-6">
+        <div class="text-xs uppercase tracking-widest text-neutral-500 font-mono">Step 02</div>
+        <div class="mt-3 display-md text-2xl text-neon">Design</div>
+        <p class="mt-3 text-sm text-neutral-400">We design and write the homepage and key pages. You see a working preview, not Figma mocks.</p>
+      </li>
+      <li class="reveal panel p-6">
+        <div class="text-xs uppercase tracking-widest text-neutral-500 font-mono">Step 03</div>
+        <div class="mt-3 display-md text-2xl text-neon">Build</div>
+        <p class="mt-3 text-sm text-neutral-400">We finish the rest, plug in your forms, set up SEO, and harden the site. You test the preview.</p>
+      </li>
+      <li class="reveal panel p-6">
+        <div class="text-xs uppercase tracking-widest text-neutral-500 font-mono">Step 04</div>
+        <div class="mt-3 display-md text-2xl text-neon">Launch</div>
+        <p class="mt-3 text-sm text-neutral-400">OWASP Top 10 scan, final fixes, DNS cutover. You get the keys + a written security report.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Security -->
+<section id="security" class="relative py-24 md:py-32 border-y border-white/10 bg-ink-800">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="label mb-4">// 04 — Security</p>
+      <h2 class="display neon-glow text-4xl md:text-6xl uppercase">Security<br/>isn't a<br/>checkbox.</h2>
+      <p class="mt-6 text-lg text-neutral-400">Most agencies ship a site and never run a single scan. We run the same baseline tools security teams use, and we hand you the report.</p>
+      <p class="mt-4 text-sm text-neutral-500">We don't provide penetration testing or compliance certification. What we do is the standard hygiene that 90% of growing-business sites are missing.</p>
+      <div class="mt-8 speed-lines"><i></i><i></i><i></i></div>
+    </div>
+    <ul class="space-y-3">
+      <li class="reveal panel p-5 flex gap-4">
+        <span class="text-neon font-bold mt-0.5">▸</span>
+        <div><div class="text-white font-semibold">HTTPS &amp; modern TLS</div><div class="text-sm text-neutral-400">HSTS enabled. Zero mixed content.</div></div>
+      </li>
+      <li class="reveal panel p-5 flex gap-4">
+        <span class="text-neon font-bold mt-0.5">▸</span>
+        <div><div class="text-white font-semibold">Hardened security headers</div><div class="text-sm text-neutral-400">CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.</div></div>
+      </li>
+      <li class="reveal panel p-5 flex gap-4">
+        <span class="text-neon font-bold mt-0.5">▸</span>
+        <div><div class="text-white font-semibold">OWASP Top 10 (2021)</div><div class="text-sm text-neutral-400">Baseline scan with findings remediated or disclosed.</div></div>
+      </li>
+      <li class="reveal panel p-5 flex gap-4">
+        <span class="text-neon font-bold mt-0.5">▸</span>
+        <div><div class="text-white font-semibold">Dependency auditing</div><div class="text-sm text-neutral-400">Every package checked. No abandoned plugins.</div></div>
+      </li>
+      <li class="reveal panel p-5 flex gap-4">
+        <span class="text-neon font-bold mt-0.5">▸</span>
+        <div><div class="text-white font-semibold">Spam-resistant forms</div><div class="text-sm text-neutral-400">Honeypot field + Cloudflare Turnstile (free CAPTCHA alternative).</div></div>
+      </li>
+      <li class="reveal panel p-5 flex gap-4">
+        <span class="text-neon font-bold mt-0.5">▸</span>
+        <div><div class="text-white font-semibold">Written security report</div><div class="text-sm text-neutral-400">Handed to you at launch. Scan output, what was fixed, what's monitored.</div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="relative py-24 md:py-32">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="label mb-4">// 05 — Questions</p>
+    <h2 class="display neon-glow text-4xl md:text-6xl uppercase">Things we<br/>hear a lot.</h2>
+    <div class="mt-12 divide-y divide-white/10">
+      <details class="py-6 group">
+        <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-white list-none">
+          <span>Can you really build a site in 7 days?</span>
+          <span class="text-neon group-open:rotate-45 transition text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-neutral-400">Yes — for a focused 5–10 page growing-business site. We work from a tight starter template and use AI-assisted tooling for content and components. Bigger projects (e-commerce, custom apps) take longer; we'll give you a fixed date upfront.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-white list-none">
+          <span>What does "secure" actually mean here?</span>
+          <span class="text-neon group-open:rotate-45 transition text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-neutral-400">It means a concrete, repeatable checklist: HTTPS, modern security headers, an OWASP Top 10 baseline scan with findings fixed or disclosed, dependency auditing, spam-resistant forms, and a written report at handover. We don't claim "unhackable" — nothing is. We do claim the basics, done properly.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-white list-none">
+          <span>What's not included?</span>
+          <span class="text-neon group-open:rotate-45 transition text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-neutral-400">Ongoing content writing, social-media management, paid ads, custom application development, more than two rounds of revisions, and stock-photo licences not paid for by us. Anything outside scope is a separate quote — never a surprise charge.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-white list-none">
+          <span>Who owns the site?</span>
+          <span class="text-neon group-open:rotate-45 transition text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-neutral-400">You do. The domain is in your name. Hosting accounts are in your name. The codebase is yours. We retain rights only to our reusable starter components.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-white list-none">
+          <span>How do payments work?</span>
+          <span class="text-neon group-open:rotate-45 transition text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-neutral-400">50% deposit at kickoff, 50% at launch. UPI, Razorpay, or bank transfer for India. Stripe / Wise for international. Numbered invoice for every payment; GST added once our registration is active.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="relative py-24 md:py-32 border-t border-white/10 bg-ink-800 overflow-hidden">
+  <!-- Glow blobs behind the glass (so the blur has something to chew on) -->
+  <div aria-hidden class="absolute -top-32 -left-24 w-[460px] h-[460px] rounded-full pointer-events-none"
+       style="background: radial-gradient(circle, rgba(182,255,26,0.32), transparent 60%); filter: blur(50px);"></div>
+  <div aria-hidden class="absolute bottom-0 right-0 w-[520px] h-[520px] rounded-full pointer-events-none"
+       style="background: radial-gradient(circle, rgba(182,255,26,0.18), transparent 60%); filter: blur(70px);"></div>
+  <div aria-hidden class="absolute inset-0 grid-pattern opacity-25"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6">
+    <p class="label mb-4">// 06 — Contact</p>
+    <h2 class="display neon-glow text-4xl md:text-6xl uppercase">Tell us about<br/>your business.</h2>
+    <p class="mt-6 text-lg text-neutral-300">We reply within 24 hours with a quote, a delivery date, and a kickoff slot.</p>
+
+    <!-- Glass panel: gradient border ring + frosted interior -->
+    <div class="mt-12 rounded-2xl p-[1.5px]"
+         style="background: linear-gradient(135deg, rgba(182,255,26,0.55), rgba(182,255,26,0.08) 45%, rgba(255,255,255,0.10));">
+      <div class="rounded-[14px] p-6 md:p-9"
+           style="background: rgba(10,10,10,0.45);
+                  backdrop-filter: blur(22px) saturate(140%);
+                  -webkit-backdrop-filter: blur(22px) saturate(140%);
+                  border: 1px solid rgba(255,255,255,0.06);
+                  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 30px 80px -20px rgba(0,0,0,0.55);">
+        <form id="contact-form" class="grid gap-5" action="https://formspree.io/f/mvzlrogv" method="POST">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono">Your name</span>
+              <input required name="name" type="text"
+                     class="mt-2 w-full rounded-lg bg-white/5 border border-white/10 focus:border-neon focus:ring-1 focus:ring-neon outline-none px-3.5 py-3 text-white placeholder-neutral-500 transition"
+                     style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);" />
+            </label>
+            <label class="block">
+              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono">Email</span>
+              <input required name="email" type="email"
+                     class="mt-2 w-full rounded-lg bg-white/5 border border-white/10 focus:border-neon focus:ring-1 focus:ring-neon outline-none px-3.5 py-3 text-white placeholder-neutral-500 transition"
+                     style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono">Business name &amp; what you do</span>
+            <input required name="business" type="text"
+                   class="mt-2 w-full rounded-lg bg-white/5 border border-white/10 focus:border-neon focus:ring-1 focus:ring-neon outline-none px-3.5 py-3 text-white placeholder-neutral-500 transition"
+                   style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono">Tell us about your project</span>
+            <textarea required name="message" rows="5"
+                      class="mt-2 w-full rounded-lg bg-white/5 border border-white/10 focus:border-neon focus:ring-1 focus:ring-neon outline-none px-3.5 py-3 text-white placeholder-neutral-500 transition"
+                      style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono">Package you're interested in</span>
+            <select name="package"
+                    class="mt-2 w-full rounded-lg bg-white/5 border border-white/10 focus:border-neon focus:ring-1 focus:ring-neon outline-none px-3.5 py-3 text-white transition"
+                    style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+              <option style="background:#0A0A0A;color:#fff;">Not sure yet</option>
+              <option style="background:#0A0A0A;color:#fff;">Starter</option>
+              <option style="background:#0A0A0A;color:#fff;">Growth</option>
+              <option style="background:#0A0A0A;color:#fff;">Pro</option>
+            </select>
+          </label>
+          <button type="submit"
+                  class="btn-shimmer mt-3 inline-flex justify-center items-center bg-neon hover:bg-neon-600 text-black px-6 py-3.5 rounded-lg font-bold uppercase tracking-wider transition"
+                  style="box-shadow: 0 0 32px rgba(182,255,26,.55);">
+            Send — reply in 24h →
+          </button>
+          <p class="text-xs text-neutral-500 font-mono">By submitting, you agree to be contacted about your enquiry. We don't share your details.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="relative bg-black border-t border-white/10 overflow-hidden">
+  <div class="wave-bottom" style="opacity:.6"></div>
+  <div class="relative max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10 text-sm">
+    <div>
+      <div class="flex items-center gap-2 text-white font-bold">
+        <span class="inline-block w-10 h-5 text-neon" style="filter: drop-shadow(0 0 6px rgba(182,255,26,.45));"><svg viewBox="0 0 64 32" class="w-full h-full" aria-hidden="true">
+        <circle cx="22" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
+        <circle cx="42" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
+      </svg></span>
+        <span class="font-display tracking-wider">MugenSec</span>
+      </div>
+      <p class="mt-4 text-neutral-500">Fast, secure websites for growing businesses. Shipped in 7 days.</p>
+      <div class="mt-6 speed-lines"><i></i><i></i><i></i></div>
+    </div>
+    <div>
+      <div class="label mb-4">Sitemap</div>
+      <ul class="space-y-2 text-neutral-400 font-mono">
+        <li><a href="#why" class="hover:text-neon">Why us</a></li>
+        <li><a href="#packages" class="hover:text-neon">Packages</a></li>
+        <li><a href="#process" class="hover:text-neon">Process</a></li>
+        <li><a href="#security" class="hover:text-neon">Security</a></li>
+        <li><a href="#faq" class="hover:text-neon">FAQ</a></li>
+        <li><a href="#contact" class="hover:text-neon">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="label mb-4">Contact</div>
+      <ul class="space-y-2 text-neutral-400 font-mono">
+        <li>Email: <a class="hover:text-neon" href="mailto:mkrishnan@mugensec.com">mkrishnan@mugensec.com</a></li>
+        <li>WhatsApp: <a class="hover:text-neon" href="https://wa.me/919744552312">+91 97445 52312</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-5 text-xs flex flex-wrap justify-between gap-2 text-neutral-600 font-mono">
+      <div>// © <span id="year">2026</span> MugenSec — All rights reserved.</div>
+      <div class="space-x-4">
+        <a href="./privacy.html" class="hover:text-neon">Privacy</a>
+        <a href="./terms.html" class="hover:text-neon">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
