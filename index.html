@@ -31,11 +31,11 @@
       extend: {
         colors: {
           neon: {
-            DEFAULT: "#B6FF1A",
-            500: "#B6FF1A",
-            600: "#9EE60E",
-            700: "#7FB821",
-            900: "#3A5807"
+            DEFAULT: "#B47AF7",
+            500: "#B47AF7",
+            600: "#9D5FF0",
+            700: "#7C42D4",
+            900: "#3E1E72"
           },
           ink: {
             900: "#000000",
@@ -73,7 +73,7 @@
 </script>
 
 <style>
-  :root { --neon: #B6FF1A; }
+  :root { --neon: #B47AF7; }
   html { scroll-behavior: smooth; background: #000; }
   body { background: #000; }
 
@@ -81,13 +81,13 @@
   .neon-glow {
     color: var(--neon);
     text-shadow:
-      0 0 2px rgba(182, 255, 26, 0.55),
-      0 0 8px rgba(182, 255, 26, 0.22),
-      0 0 22px rgba(182, 255, 26, 0.12);
+      0 0 2px rgba(180, 122, 247, 0.55),
+      0 0 8px rgba(180, 122, 247, 0.22),
+      0 0 22px rgba(180, 122, 247, 0.12);
   }
   .neon-soft {
     color: var(--neon);
-    text-shadow: 0 0 6px rgba(182, 255, 26, 0.25);
+    text-shadow: 0 0 6px rgba(180, 122, 247, 0.25);
   }
 
   /* Subtle scanline backdrop for hero */
@@ -95,16 +95,16 @@
     background-image:
       repeating-linear-gradient(
         to bottom,
-        rgba(182,255,26,0.02) 0px,
-        rgba(182,255,26,0.02) 1px,
+        rgba(180,122,247,0.02) 0px,
+        rgba(180,122,247,0.02) 1px,
         transparent 1px,
         transparent 4px
       );
   }
   .grid-pattern {
     background-image:
-      linear-gradient(to right, rgba(182,255,26,0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(182,255,26,0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(180,122,247,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(180,122,247,0.05) 1px, transparent 1px);
     background-size: 36px 36px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
@@ -116,7 +116,7 @@
   .speed-lines i {
     display: block; height: 3px; border-radius: 2px;
     background: var(--neon);
-    box-shadow: 0 0 8px rgba(182,255,26,0.7);
+    box-shadow: 0 0 8px rgba(180,122,247,0.7);
   }
   .speed-lines i:nth-child(1){ width: 28px; }
   .speed-lines i:nth-child(2){ width: 44px; }
@@ -125,7 +125,7 @@
 
   /* Section dots */
   .section-dots { display: inline-flex; gap: 6px; }
-  .section-dots span { width: 6px; height: 6px; border-radius: 9999px; background: var(--neon); box-shadow: 0 0 8px rgba(182,255,26,0.6); }
+  .section-dots span { width: 6px; height: 6px; border-radius: 9999px; background: var(--neon); box-shadow: 0 0 8px rgba(180,122,247,0.6); }
 
   /* Card: dark with thin neon-tinted border */
   .panel {
@@ -134,7 +134,7 @@
     border-radius: 18px;
   }
   .panel-hover { transition: border-color .2s, box-shadow .2s, transform .2s; }
-  .panel-hover:hover { border-color: rgba(182,255,26,0.45); box-shadow: 0 0 0 1px rgba(182,255,26,0.15), 0 8px 32px rgba(182,255,26,0.07); transform: translateY(-2px); }
+  .panel-hover:hover { border-color: rgba(180,122,247,0.45); box-shadow: 0 0 0 1px rgba(180,122,247,0.15), 0 8px 32px rgba(180,122,247,0.07); transform: translateY(-2px); }
 
   .label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; color: var(--neon); }
   .display { font-family: 'Tektur', ui-monospace, monospace; font-weight: 900; letter-spacing: .01em; line-height: 0.95; }
@@ -144,8 +144,8 @@
   .wave-bottom {
     position: absolute; left: 0; right: 0; bottom: 0; height: 80px;
     background:
-      radial-gradient(ellipse 220px 60px at 10% 100%, rgba(182,255,26,0.35), transparent 70%),
-      radial-gradient(ellipse 280px 60px at 80% 100%, rgba(182,255,26,0.25), transparent 70%);
+      radial-gradient(ellipse 220px 60px at 10% 100%, rgba(180,122,247,0.35), transparent 70%),
+      radial-gradient(ellipse 280px 60px at 80% 100%, rgba(180,122,247,0.25), transparent 70%);
     pointer-events: none;
   }
 
@@ -158,6 +158,91 @@
     html { scroll-behavior: auto; }
   }
 
+  /* ---------- Dossier styling ---------- */
+
+  /* Corner-bracket frame: a thin violet border with L-shape ticks at each corner */
+  .dossier {
+    position: relative;
+    border: 1px solid rgba(180,122,247,0.38);
+    background:
+      linear-gradient(180deg, rgba(180,122,247,0.04) 0%, rgba(0,0,0,0.0) 60%),
+      rgba(8,4,16,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .dossier::before, .dossier::after,
+  .dossier > .corner-tl, .dossier > .corner-tr,
+  .dossier > .corner-bl, .dossier > .corner-br { content: ""; position: absolute; width: 14px; height: 14px; border-color: var(--neon); pointer-events: none; }
+  .dossier > .corner-tl { top: -1px; left: -1px; border-top: 2px solid var(--neon); border-left: 2px solid var(--neon); }
+  .dossier > .corner-tr { top: -1px; right: -1px; border-top: 2px solid var(--neon); border-right: 2px solid var(--neon); }
+  .dossier > .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--neon); border-left: 2px solid var(--neon); }
+  .dossier > .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--neon); border-right: 2px solid var(--neon); }
+  .dossier::before, .dossier::after { display: none; }
+
+  /* Halftone dot texture used on the "portrait" panel */
+  .halftone {
+    background-color: #07030E;
+    background-image:
+      radial-gradient(circle at center, rgba(180,122,247,0.85) 0.9px, transparent 1.4px);
+    background-size: 5px 5px;
+    background-position: 0 0;
+  }
+  .halftone-fade {
+    -webkit-mask-image: radial-gradient(ellipse at 50% 35%, black 35%, transparent 78%);
+            mask-image: radial-gradient(ellipse at 50% 35%, black 35%, transparent 78%);
+  }
+
+  /* Circuit-board pattern for the secondary glyph panel */
+  .circuit {
+    background-color: #07030E;
+    background-image:
+      linear-gradient(0deg, rgba(180,122,247,0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180,122,247,0.18) 1px, transparent 1px),
+      radial-gradient(circle at 20% 30%, rgba(180,122,247,0.55) 1.6px, transparent 2px),
+      radial-gradient(circle at 78% 65%, rgba(180,122,247,0.55) 1.6px, transparent 2px),
+      radial-gradient(circle at 40% 80%, rgba(180,122,247,0.45) 1.4px, transparent 2px);
+    background-size: 12px 12px, 12px 12px, 100% 100%, 100% 100%, 100% 100%;
+  }
+
+  /* Data table inside the dossier card */
+  .dossier-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(180,122,247,0.18);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: .04em;
+  }
+  .dossier-row:last-child { border-bottom: none; }
+  .dossier-row .k { color: rgba(255,255,255,0.55); text-transform: uppercase; font-weight: 700; font-size: 11px; letter-spacing: .14em; align-self: center; }
+  .dossier-row .v { color: #fff; text-align: right; text-transform: uppercase; font-weight: 700; }
+  .dossier-row .v.accent { color: var(--neon); text-shadow: 0 0 8px rgba(180,122,247,0.45); }
+
+  /* Threat / delivery meter — segmented bar */
+  .meter {
+    display: flex; gap: 3px; align-items: center;
+    height: 18px;
+  }
+  .meter i {
+    flex: 1 1 auto; height: 100%;
+    background: rgba(180,122,247,0.18);
+    border: 1px solid rgba(180,122,247,0.28);
+  }
+  .meter i.on { background: var(--neon); border-color: var(--neon); box-shadow: 0 0 10px rgba(180,122,247,0.65); }
+  .meter .cap { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .14em; color: var(--neon); border: 1px solid rgba(180,122,247,0.45); padding: 2px 6px; flex: 0 0 auto; height: 100%; display: inline-flex; align-items: center; }
+
+  /* Tiny waveform decoration (pure CSS, faked) */
+  .waveform {
+    height: 22px;
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(180,122,247,0.55) 0 1px,
+        transparent 1px 4px);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
 
   /* ---------- Cyber animations ---------- */
 
@@ -171,9 +256,9 @@
 
   /* Pulsing "live" dot */
   @keyframes pulse-dot {
-    0%   { box-shadow: 0 0 0 0 rgba(182,255,26,.55); transform: scale(1); }
-    70%  { box-shadow: 0 0 0 10px rgba(182,255,26,0);  transform: scale(1.05); }
-    100% { box-shadow: 0 0 0 0 rgba(182,255,26,0);     transform: scale(1); }
+    0%   { box-shadow: 0 0 0 0 rgba(180,122,247,.55); transform: scale(1); }
+    70%  { box-shadow: 0 0 0 10px rgba(180,122,247,0);  transform: scale(1.05); }
+    100% { box-shadow: 0 0 0 0 rgba(180,122,247,0);     transform: scale(1); }
   }
   .pulse-dot { animation: pulse-dot 2s ease-out infinite; }
 
@@ -194,7 +279,7 @@
   .scan-sweep {
     position: absolute; left: 0; right: 0; top: 0; height: 110px;
     pointer-events: none; mix-blend-mode: screen;
-    background: linear-gradient(180deg, transparent 0%, rgba(182,255,26,.04) 30%, rgba(182,255,26,.20) 50%, rgba(182,255,26,.04) 70%, transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(180,122,247,.04) 30%, rgba(180,122,247,.20) 50%, rgba(180,122,247,.04) 70%, transparent 100%);
     filter: blur(2px);
     animation: scan-sweep 8s linear infinite;
   }
@@ -205,7 +290,7 @@
     display: inline-block; width: 8px; height: 1em;
     background: var(--neon); margin-left: 6px; vertical-align: -2px;
     animation: caret-blink 1s steps(2) infinite;
-    box-shadow: 0 0 6px rgba(182,255,26,.55);
+    box-shadow: 0 0 6px rgba(180,122,247,.55);
   }
 
   /* Logo flicker (one-shot via class) */
@@ -261,7 +346,7 @@
 <header class="sticky top-0 z-40 backdrop-blur bg-black/85 border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <a href="#top" class="flex items-center gap-2 font-bold text-white text-lg">
-      <span id="brand-mark" class="inline-block w-10 h-5 text-neon" style="filter: drop-shadow(0 0 6px rgba(182,255,26,.45));"><svg viewBox="0 0 64 32" class="w-full h-full" aria-hidden="true">
+      <span id="brand-mark" class="inline-block w-10 h-5 text-neon" style="filter: drop-shadow(0 0 6px rgba(180,122,247,.45));"><svg viewBox="0 0 64 32" class="w-full h-full" aria-hidden="true">
         <circle cx="22" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
         <circle cx="42" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
       </svg></span>
@@ -274,7 +359,7 @@
       <a href="#security" class="hover:text-neon transition">Security</a>
       <a href="#faq" class="hover:text-neon transition">FAQ</a>
     </nav>
-    <a href="#contact" class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-neon text-black px-4 py-2 rounded-md text-sm font-semibold hover:bg-neon-600 transition" style="box-shadow: 0 0 24px rgba(182,255,26,.35);">Get a quote →</a>
+    <a href="#contact" class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-neon text-black px-4 py-2 rounded-md text-sm font-semibold hover:bg-neon-600 transition" style="box-shadow: 0 0 24px rgba(180,122,247,.35);">Get a quote →</a>
     <button id="mnav" class="md:hidden p-2 -mr-2 text-neutral-200" aria-label="Open menu" aria-expanded="false">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
@@ -293,9 +378,9 @@
 
 <main id="main">
 
-<!-- Hero -->
+<!-- Hero — operative dossier -->
 <section id="top" class="relative overflow-hidden">
-  <div class="absolute inset-0 grid-pattern opacity-80"></div>
+  <div class="absolute inset-0 grid-pattern opacity-70"></div>
   <div class="absolute inset-0 scanlines"></div>
   <div class="scan-sweep"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
@@ -304,19 +389,132 @@
   <div class="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 speed-lines"><i></i><i></i><i></i></div>
   <div class="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 speed-lines right"><i></i><i></i><i></i></div>
 
-  <div class="relative max-w-6xl mx-auto px-6 pt-20 pb-28 md:pt-32 md:pb-40 text-center md:text-left">
+  <div class="relative max-w-6xl mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32">
+
+    <!-- Status line -->
     <p class="label inline-flex items-center gap-2 mb-6">
       <span class="w-1.5 h-1.5 rounded-full bg-neon pulse-dot"></span>
-      Now booking 3 launch-rate clients
+      Live intake — 3 launch-rate slots open
     </p>
-    <h1 class="display neon-glow text-5xl md:text-7xl lg:text-8xl uppercase scan-in">
+
+    <!-- Hero headline -->
+    <h1 class="display neon-glow text-4xl sm:text-5xl md:text-7xl uppercase scan-in">
       Fast, secure<br/>websites <span class="text-white" style="text-shadow:none">for</span><br/>growing business.
     </h1>
-    <p class="mt-8 max-w-2xl text-lg md:text-xl text-neutral-300 mx-auto md:mx-0">
+
+    <!-- Dossier card -->
+    <div class="dossier mt-12 rounded-md p-5 md:p-7 reveal">
+      <span class="corner-tl"></span><span class="corner-tr"></span>
+      <span class="corner-bl"></span><span class="corner-br"></span>
+
+      <!-- Card header strip -->
+      <div class="flex items-center justify-between gap-4 pb-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <span class="label">Subject File</span>
+          <span class="text-white font-display tracking-wider text-lg md:text-xl">MUGENSEC</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="hidden sm:inline-flex items-center gap-2 text-[11px] uppercase tracking-widest font-mono text-neutral-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-neon pulse-dot"></span>
+            Encrypted
+          </span>
+          <span class="text-[11px] uppercase tracking-widest font-mono text-neon border border-neon/40 rounded px-2 py-1">ID: MGS-001</span>
+        </div>
+      </div>
+
+      <!-- Body grid: visuals on left, data table on right -->
+      <div class="mt-5 grid md:grid-cols-2 gap-5">
+
+        <!-- LEFT — visuals: portrait halftone + circuit panel -->
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Portrait panel -->
+          <div class="relative aspect-square halftone halftone-fade rounded-sm border border-white/10 overflow-hidden">
+            <!-- Brand glyph ghosted into the halftone -->
+            <svg viewBox="0 0 64 32" class="absolute inset-0 m-auto w-3/4 h-auto text-neon"
+                 style="filter: drop-shadow(0 0 12px rgba(180,122,247,.55));" aria-hidden="true">
+              <circle cx="22" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="42" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="3"/>
+            </svg>
+            <span class="absolute top-2 left-2 text-[10px] font-mono uppercase tracking-widest text-neon/80">Operator</span>
+            <span class="absolute bottom-2 right-2 text-[10px] font-mono uppercase tracking-widest text-neon/80">DX-076</span>
+          </div>
+
+          <!-- Circuit panel -->
+          <div class="relative aspect-square circuit rounded-sm border border-white/10 overflow-hidden">
+            <!-- Shield + lock glyph -->
+            <svg viewBox="0 0 64 64" class="absolute inset-0 m-auto w-3/5 h-auto text-neon"
+                 style="filter: drop-shadow(0 0 10px rgba(180,122,247,.55));" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3">
+              <path d="M32 6 L54 14 V32 C54 46 44 56 32 60 C20 56 10 46 10 32 V14 Z"/>
+              <rect x="22" y="28" width="20" height="16" rx="2"/>
+              <path d="M26 28 V22 a6 6 0 0 1 12 0 V28"/>
+            </svg>
+            <span class="absolute top-2 left-2 text-[10px] font-mono uppercase tracking-widest text-neon/80">Asset</span>
+            <span class="absolute bottom-2 right-2 text-[10px] font-mono uppercase tracking-widest text-neon/80">982-V7</span>
+          </div>
+        </div>
+
+        <!-- RIGHT — data table -->
+        <div class="flex flex-col">
+          <div class="dossier-row">
+            <span class="k">Operator</span>
+            <span class="v">Midhun P.</span>
+          </div>
+          <div class="dossier-row">
+            <span class="k">Found Date</span>
+            <span class="v">2026 / 01</span>
+          </div>
+          <div class="dossier-row">
+            <span class="k">Role</span>
+            <span class="v">Web · Security</span>
+          </div>
+          <div class="dossier-row">
+            <span class="k">Delivery</span>
+            <span class="v accent">7 Days · Fixed</span>
+          </div>
+          <div class="dossier-row">
+            <span class="k">Condition</span>
+            <span class="v accent">Accepting Clients</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abilities row -->
+      <div class="mt-5 pt-5 border-t border-white/10 grid md:grid-cols-3 gap-4">
+        <div class="md:col-span-1">
+          <div class="label">Abilities</div>
+          <div class="mt-3 waveform"></div>
+        </div>
+        <ul class="md:col-span-2 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm font-mono text-neutral-200">
+          <li class="flex gap-2"><span class="text-neon">▸</span> 7-day fixed-price builds</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> OWASP Top 10 testing</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Hardened security headers</li>
+          <li class="flex gap-2"><span class="text-neon">▸</span> Continuous monitoring (Sentinel)</li>
+        </ul>
+      </div>
+
+      <!-- Threat-level / delivery meter -->
+      <div class="mt-5 pt-5 border-t border-white/10 grid md:grid-cols-[1fr_auto] gap-3 items-center">
+        <div>
+          <div class="label">Threat to attackers</div>
+          <div class="meter mt-3">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+            <i class="on"></i><i class="on"></i>
+            <span class="cap">MAX</span>
+          </div>
+        </div>
+        <div class="hidden md:block text-[11px] uppercase tracking-widest font-mono text-neutral-500">
+          // signal · clean
+        </div>
+      </div>
+    </div>
+
+    <!-- Pitch + CTAs -->
+    <p class="mt-10 max-w-2xl text-lg md:text-xl text-neutral-300">
       <span class="neon-soft font-semibold">Shipped in 7 days.</span> Fixed price. No surprises. Every MugenSec site goes live secure by default — HTTPS, hardened headers, an OWASP Top 10 baseline scan, and a written security report at handover.
     </p>
-    <div class="mt-10 flex flex-wrap gap-3 justify-center md:justify-start">
-      <a href="#contact" class="btn-shimmer inline-flex items-center gap-2 bg-neon hover:bg-neon-600 text-black px-6 py-3 rounded-md font-semibold uppercase tracking-wider transition" style="box-shadow: 0 0 28px rgba(182,255,26,.45);">
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#contact" class="btn-shimmer inline-flex items-center gap-2 bg-neon hover:bg-neon-600 text-black px-6 py-3 rounded-md font-semibold uppercase tracking-wider transition" style="box-shadow: 0 0 28px rgba(180,122,247,.45);">
         Get a quote →
       </a>
       <a href="#packages" class="inline-flex items-center gap-2 border border-neon/40 text-neon hover:bg-neon/10 px-6 py-3 rounded-md font-semibold uppercase tracking-wider transition">
@@ -324,7 +522,7 @@
       </a>
     </div>
 
-    <div class="mt-12 section-dots"><span></span><span></span><span></span></div>
+    <div class="mt-10 section-dots"><span></span><span></span><span></span></div>
   </div>
 </section>
 
@@ -364,21 +562,21 @@
 
     <div class="grid md:grid-cols-3 gap-5">
       <div class="reveal panel panel-hover p-7">
-        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(182,255,26,.25) inset;">
+        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(180,122,247,.25) inset;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
         </div>
         <h3 class="display-md text-2xl text-white">Fast to ship.<br/>Fast to load.</h3>
         <p class="mt-3 text-neutral-400">Sites go live in 3–10 days. Static-first builds keep Lighthouse above 90 — even on slow phones.</p>
       </div>
       <div class="reveal panel panel-hover p-7">
-        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(182,255,26,.25) inset;">
+        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(180,122,247,.25) inset;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg>
         </div>
         <h3 class="display-md text-2xl text-white">Secure by<br/>default.</h3>
         <p class="mt-3 text-neutral-400">Every site ships with HTTPS, hardened security headers, dependency auditing, and an OWASP Top 10 baseline scan with findings remediated.</p>
       </div>
       <div class="reveal panel panel-hover p-7">
-        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(182,255,26,.25) inset;">
+        <div class="w-11 h-11 rounded-md border border-neon/40 text-neon grid place-items-center mb-5" style="box-shadow: 0 0 18px rgba(180,122,247,.25) inset;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M5 6h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg>
         </div>
         <h3 class="display-md text-2xl text-white">Fair, fixed<br/>pricing.</h3>
@@ -419,8 +617,8 @@
       </div>
 
       <!-- Growth (highlighted) -->
-      <div class="relative panel panel-hover p-7 flex flex-col" style="border-color: rgba(182,255,26,.55); box-shadow: 0 0 0 1px rgba(182,255,26,.25), 0 0 60px rgba(182,255,26,.10);">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-neon text-black text-[11px] uppercase tracking-widest font-bold px-3 py-1 rounded-full font-mono" style="box-shadow: 0 0 18px rgba(182,255,26,.55);">Most popular</div>
+      <div class="relative panel panel-hover p-7 flex flex-col" style="border-color: rgba(180,122,247,.55); box-shadow: 0 0 0 1px rgba(180,122,247,.25), 0 0 60px rgba(180,122,247,.10);">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-neon text-black text-[11px] uppercase tracking-widest font-bold px-3 py-1 rounded-full font-mono" style="box-shadow: 0 0 18px rgba(180,122,247,.55);">Most popular</div>
         <div class="label">Growth</div>
         <div class="mt-4 flex items-baseline gap-2">
           <div class="display text-5xl neon-soft">₹18k</div>
@@ -434,7 +632,7 @@
           <li class="flex gap-2"><span class="text-neon">▸</span> Schema.org structured data</li>
           <li class="flex gap-2"><span class="text-neon">▸</span> OWASP Top 10 quick scan</li>
         </ul>
-        <a href="#contact" class="btn-shimmer mt-8 inline-flex justify-center items-center bg-neon hover:bg-neon-600 text-black px-4 py-2.5 rounded-md font-semibold uppercase tracking-wider text-sm transition" style="box-shadow: 0 0 24px rgba(182,255,26,.40);">Pick Growth</a>
+        <a href="#contact" class="btn-shimmer mt-8 inline-flex justify-center items-center bg-neon hover:bg-neon-600 text-black px-4 py-2.5 rounded-md font-semibold uppercase tracking-wider text-sm transition" style="box-shadow: 0 0 24px rgba(180,122,247,.40);">Pick Growth</a>
       </div>
 
       <!-- Pro -->
@@ -584,9 +782,9 @@
 <section id="contact" class="relative py-24 md:py-32 border-t border-white/10 bg-ink-800 overflow-hidden">
   <!-- Glow blobs behind the glass (so the blur has something to chew on) -->
   <div aria-hidden class="absolute -top-32 -left-24 w-[460px] h-[460px] rounded-full pointer-events-none"
-       style="background: radial-gradient(circle, rgba(182,255,26,0.32), transparent 60%); filter: blur(50px);"></div>
+       style="background: radial-gradient(circle, rgba(180,122,247,0.32), transparent 60%); filter: blur(50px);"></div>
   <div aria-hidden class="absolute bottom-0 right-0 w-[520px] h-[520px] rounded-full pointer-events-none"
-       style="background: radial-gradient(circle, rgba(182,255,26,0.18), transparent 60%); filter: blur(70px);"></div>
+       style="background: radial-gradient(circle, rgba(180,122,247,0.18), transparent 60%); filter: blur(70px);"></div>
   <div aria-hidden class="absolute inset-0 grid-pattern opacity-25"></div>
 
   <div class="relative max-w-3xl mx-auto px-6">
@@ -596,7 +794,7 @@
 
     <!-- Glass panel: gradient border ring + frosted interior -->
     <div class="mt-12 rounded-2xl p-[1.5px]"
-         style="background: linear-gradient(135deg, rgba(182,255,26,0.55), rgba(182,255,26,0.08) 45%, rgba(255,255,255,0.10));">
+         style="background: linear-gradient(135deg, rgba(180,122,247,0.55), rgba(180,122,247,0.08) 45%, rgba(255,255,255,0.10));">
       <div class="rounded-[14px] p-6 md:p-9"
            style="background: rgba(10,10,10,0.45);
                   backdrop-filter: blur(22px) saturate(140%);
@@ -661,7 +859,7 @@
           </label>
           <button type="submit"
                   class="btn-shimmer mt-3 inline-flex justify-center items-center bg-neon hover:bg-neon-600 text-black px-6 py-3.5 rounded-lg font-bold uppercase tracking-wider transition"
-                  style="box-shadow: 0 0 32px rgba(182,255,26,.55);">
+                  style="box-shadow: 0 0 32px rgba(180,122,247,.55);">
             Send — reply in 24h →
           </button>
           <p class="text-xs text-neutral-500 font-mono">By submitting, you agree to be contacted about your enquiry. We don't share your details.</p>
@@ -679,7 +877,7 @@
   <div class="relative max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10 text-sm">
     <div>
       <div class="flex items-center gap-2 text-white font-bold">
-        <span class="inline-block w-10 h-5 text-neon" style="filter: drop-shadow(0 0 6px rgba(182,255,26,.45));"><svg viewBox="0 0 64 32" class="w-full h-full" aria-hidden="true">
+        <span class="inline-block w-10 h-5 text-neon" style="filter: drop-shadow(0 0 6px rgba(180,122,247,.45));"><svg viewBox="0 0 64 32" class="w-full h-full" aria-hidden="true">
         <circle cx="22" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
         <circle cx="42" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="4.5"/>
       </svg></span>
